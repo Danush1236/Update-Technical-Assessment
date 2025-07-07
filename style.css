@@ -1,0 +1,517 @@
+body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        *, *::before, *::after {
+            box-sizing: border-box;
+        }
+
+        .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            z-index: 1;
+        }
+
+        .background-image::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2;
+        }
+
+        .login-container {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 3;
+            padding: 20px;
+        }
+
+        .container-wrapper {
+            display: flex;
+            width: 100%;
+            max-width: 1400px;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .side-content {
+            display: none;
+            flex: 1;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .show-side-content {
+            display: block !important;
+        }
+
+        .side-logo {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 24px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .car-section {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .car-image {
+            width: 100%;
+            max-width: 480px;
+            height: 280px;
+            margin-bottom: 32px;
+            border-radius: 18px;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5);
+            background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+            object-fit: cover;
+            display: block;
+        }
+
+        .car-features {
+            list-style: circle;
+            margin: 0 0 36px 0;
+            padding-left: 32px;
+            font-size: 1.1rem;
+            color: #fff;
+            line-height: 1.8;
+        }
+
+        .car-title {
+            font-size: 2.5rem;
+            font-weight: 900;
+            margin: 0 0 18px 0;
+            color: #fff;
+            letter-spacing: 1.5px;
+        }
+
+        .car-desc {
+            font-size: 1.3rem;
+            font-style: italic;
+            font-weight: 400;
+            margin: 0 0 36px 0;
+            color: #b3c6ff;
+            line-height: 1.6;
+        }
+
+        .login-box {
+            background: rgba(17, 17, 17, 0.95);
+            backdrop-filter: blur(10px);
+            color: #fff;
+            padding: 40px 32px;
+            border-radius: 18px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+            width: 100%;
+            max-width: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .logo {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 18px;
+            background: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+        }
+
+        form {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        input[type="text"],
+        input[type="password"],
+        input[type="email"] {
+            padding: 12px;
+            margin-bottom: 18px;
+            border: none;
+            border-radius: 7px;
+            background: #222;
+            color: #fff;
+            font-size: 15px;
+            outline: none;
+            transition: background 0.2s;
+            width: 100%;
+        }
+
+        input[type="text"]:focus,
+        input[type="password"]:focus,
+        input[type="email"]:focus {
+            background: #333;
+        }
+
+        input::placeholder {
+            color: #aaa;
+        }
+
+        .options {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 18px;
+            font-size: 14px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .remember-me {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+        }
+
+        .forgot-password {
+            color: #2563eb;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+
+        .forgot-password:hover {
+            color: #1d4ed8;
+        }
+
+        .login-btn {
+            background: #2563eb;
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            padding: 13px 0;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-bottom: 18px;
+            transition: background 0.2s;
+            width: 100%;
+        }
+
+        .login-btn:hover {
+            background: #1d4ed8;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 18px 0 12px 0;
+            color: #aaa;
+            font-size: 13px;
+        }
+
+        .divider::before, .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid #333;
+        }
+
+        .divider:not(:empty)::before {
+            margin-right: .75em;
+        }
+
+        .divider:not(:empty)::after {
+            margin-left: .75em;
+        }
+
+        .social-login {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 18px;
+        }
+
+        .google-btn, .apple-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #222;
+            color: #fff;
+            border: none;
+            border-radius: 7px;
+            padding: 12px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+            width: 100%;
+        }
+
+        .google-btn:hover {
+            background: #ea4335;
+        }
+
+        .apple-btn:hover {
+            background: #000;
+        }
+
+        .register-link {
+            text-align: center;
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .register-link a {
+            color: #2563eb;
+            text-decoration: none;
+            margin-left: 4px;
+            transition: color 0.2s;
+        }
+
+        .register-link a:hover {
+            color: #1d4ed8;
+        }
+
+        /* Tablet styles */
+        @media (max-width: 1024px) {
+            .container-wrapper {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .side-content {
+                width: 100%;
+                text-align: center;
+                padding: 20px;
+            }
+            
+            .car-image {
+                max-width: 350px;
+                height: 200px;
+            }
+            
+            .car-title {
+                font-size: 2rem;
+            }
+            
+            .car-desc {
+                font-size: 1.1rem;
+            }
+            
+            .car-features {
+                font-size: 1rem;
+                text-align: left;
+                max-width: 350px;
+                margin: 0 auto 20px auto;
+            }
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .login-container {
+                padding: 15px;
+            }
+            
+            .container-wrapper {
+                gap: 15px;
+            }
+            
+            .side-content {
+                padding: 15px;
+            }
+            
+            .car-image {
+                max-width: 280px;
+                height: 160px;
+            }
+            
+            .car-title {
+                font-size: 1.6rem;
+            }
+            
+            .car-desc {
+                font-size: 1rem;
+            }
+            
+            .car-features {
+                font-size: 0.9rem;
+                padding-left: 20px;
+            }
+            
+            .login-box {
+                padding: 30px 20px;
+            }
+            
+            .social-login {
+                flex-direction: row;
+            }
+            
+            .google-btn, .apple-btn {
+                flex: 1;
+            }
+        }
+
+        /* Small mobile styles */
+        @media (max-width: 480px) {
+            .login-container {
+                padding: 10px;
+            }
+            
+            .side-content {
+                padding: 10px;
+            }
+            
+            .car-image {
+                max-width: 220px;
+                height: 130px;
+            }
+            
+            .car-title {
+                font-size: 1.4rem;
+            }
+            
+            .car-desc {
+                font-size: 0.9rem;
+            }
+            
+            .car-features {
+                font-size: 0.8rem;
+                line-height: 1.4;
+            }
+            
+            .login-box {
+                padding: 20px 15px;
+            }
+            
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+            
+            input[type="text"],
+            input[type="password"],
+            input[type="email"] {
+                padding: 10px;
+                font-size: 14px;
+            }
+            
+            .login-btn {
+                padding: 12px 0;
+                font-size: 15px;
+            }
+            
+            .social-login {
+                flex-direction: column;
+            }
+            
+            .options {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+
+        /* Very small mobile styles */
+        @media (max-width: 320px) {
+            .login-container {
+                padding: 5px;
+            }
+            
+            .login-box {
+                padding: 15px 10px;
+            }
+            
+            .car-image {
+                max-width: 180px;
+                height: 100px;
+            }
+            
+            .car-title {
+                font-size: 1.2rem;
+            }
+            
+            .car-desc {
+                font-size: 0.8rem;
+            }
+            
+            .car-features {
+                font-size: 0.7rem;
+            }
+            
+            .logo {
+                width: 40px;
+                height: 40px;
+            }
+            
+            input[type="text"],
+            input[type="password"],
+            input[type="email"] {
+                padding: 8px;
+                font-size: 13px;
+            }
+            
+            .login-btn {
+                padding: 10px 0;
+                font-size: 14px;
+            }
+            
+            .google-btn, .apple-btn {
+                padding: 10px;
+                font-size: 13px;
+            }
+            
+            .register-link {
+                font-size: 13px;
+            }
+        }
+
+        /* Landscape mobile orientation */
+        @media (max-height: 600px) and (orientation: landscape) {
+            .login-container {
+                padding: 10px;
+            }
+            
+            .container-wrapper {
+                flex-direction: row;
+                gap: 20px;
+            }
+            
+            .side-content {
+                display: none;
+            }
+            
+            .show-side-content {
+                display: none !important;
+            }
+            
+            .login-box {
+                padding: 20px;
+            }
+        }

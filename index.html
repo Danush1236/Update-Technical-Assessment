@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rolls Royce Auth</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-image"></div>
+    <div class="login-container">
+        <div class="container-wrapper">
+            <div class="side-content" id="sideContent">
+                <div class="side-logo">RR</div>
+                <div class="car-section">
+                    <div class="car-image"></div>
+                    <ul class="car-features">
+                        <li>Engine: 6.75L Twin-Turbocharged V12</li>
+                        <li>Horsepower: 563 hp</li>
+                        <li>0–100 km/h: 4.8 seconds</li>
+                        <li>Interior: Hand-stitched leather, Starlight Headliner</li>
+                    </ul>
+                    <h1 class="car-title">The Blue Ghost</h1>
+                    <h2 class="car-desc"><em>A masterpiece of luxury engineering, where<br>silence speaks louder than speed...</em></h2>
+                </div>
+            </div>
+            <div class="login-box">
+                <div class="logo">RR</div>
+                <!-- Login Form -->
+                <form id="loginForm" style="display:flex;">
+                    <label for="login-username">Username</label>
+                    <input type="text" id="login-username" name="username" placeholder="User Name" required>
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="password" placeholder="Password" required>
+                    <div class="options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="rememberMe"> Remember me
+                        </label>
+                        <a href="#" class="forgot-password">Forget Password</a>
+                    </div>
+                    <button type="submit" class="login-btn">LOGIN</button>
+                    <div class="divider"><span>or</span></div>
+                    <div class="social-login">
+                        <button type="button" class="google-btn">
+                            <span>📧</span> Sign in with Google
+                        </button>
+                        <button type="button" class="apple-btn">
+                            <span>🍎</span> Sign in with Apple
+                        </button>
+                    </div>
+                    <div class="register-link">
+                        Don't have an account? <a href="#" id="showRegister">Register</a>
+                    </div>
+                </form>
+                <!-- Register Form -->
+                <form id="registerForm" style="display:none;">
+                    <label for="register-username">Username</label>
+                    <input type="text" id="register-username" name="username" placeholder="Username" required>
+                    <label for="register-email">Email Address</label>
+                    <input type="email" id="register-email" name="email" placeholder="Email Address" required>
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" name="password" placeholder="Password" required>
+                    <label for="register-confirm-password">Confirm Password</label>
+                    <input type="password" id="register-confirm-password" name="confirm-password" placeholder="Confirm Password" required>
+                    <button type="submit" class="login-btn">Register</button>
+                    <div class="register-link">
+                        Already have an account? <a href="#" id="showLogin">Log in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+        const loginForm = document.getElementById('loginForm');
+        const registerForm = document.getElementById('registerForm');
+        const showRegister = document.getElementById('showRegister');
+        const showLogin = document.getElementById('showLogin');
+        const sideContent = document.getElementById('sideContent');
+
+        function showLoginForm() {
+            registerForm.style.display = 'none';
+            loginForm.style.display = 'flex';
+            if (sideContent) sideContent.classList.remove('show-side-content');
+        }
+
+        function showRegisterForm() {
+            loginForm.style.display = 'none';
+            registerForm.style.display = 'flex';
+            if (sideContent) sideContent.classList.add('show-side-content');
+        }
+
+        if (showRegister) {
+            showRegister.addEventListener('click', function(e) {
+                e.preventDefault();
+                showRegisterForm();
+            });
+        }
+
+        if (showLogin) {
+            showLogin.addEventListener('click', function(e) {
+                e.preventDefault();
+                showLoginForm();
+            });
+        }
+
+        // Login form submit
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('login-username').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+            alert(`Welcome, ${username}! Remember me: ${rememberMe ? 'Yes' : 'No'}`);
+        });
+
+        // Register form submit
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            const username = document.getElementById('register-username').value;
+            const email = document.getElementById('register-email').value;
+            const password = document.getElementById('register-password').value;
+            const confirmPassword = document.getElementById('register-confirm-password').value;
+
+            if (!username || !email || !password || !confirmPassword) {
+                alert('Please fill in all fields.');
+                return;
+            }
+            if (password !== confirmPassword) {
+                alert('Passwords do not match.');
+                return;
+            }
+            // Registration successful, show login form
+            alert('Registration successful! Please log in.');
+            showLoginForm();
+        });
+
+        // Initialize page
+        document.addEventListener("DOMContentLoaded", function() {
+            setTimeout(() => {
+                document.querySelector('.login-box').style.opacity = '1';
+                document.querySelector('.login-box').style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html> 
